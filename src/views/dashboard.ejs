@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <h1>Dashboard</h1>
+    <form action="/tasks" method="POST">
+        <input type="text" name="title" placeholder="Task Title" required>
+        <textarea name="description" placeholder="Task Description"></textarea>
+        <select name="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
+        <input type="date" name="dueDate">
+        <input type="text" name="labels" placeholder="Labels (comma-separated)">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <% if (tasks.length> 0) { %>
+        <ul>
+            <% tasks.forEach(task=> { %>
+                <li>
+                    <h2>
+                        <%= task.title %>
+                    </h2>
+                    <p>
+                        <%= task.description %>
+                    </p>
+                    <p>Priority: <%= task.priority %>
+                    </p>
+                    <p>Due: <%= task.dueDate ? task.dueDate.toDateString() : 'No due date' %>
+                    </p>
+                    <p>Status: <%= task.status %>
+                    </p>
+                    <p>Labels: <%= task.labels.join(', ') %></p>
+                    <form action="/tasks/<%= task._id %>?_method=PUT" method="POST">
+                        <input type="hidden" name="_method" value="PUT">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No tasks found</p>
+    <% } %>
+    </ul>
+</body>
+</html>
