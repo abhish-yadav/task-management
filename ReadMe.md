@@ -4,9 +4,9 @@ Welcome to our task management application! Here, you can efficiently manage you
 
 ### Navigation Links:
 
-- **Register**: Sign up for an account to access exclusive features.
-- **Login**: Already have an account? Log in here.
-- **Public Tasks**: Explore tasks that are publicly available.
+- **Register**: Sign up for an account to access exclusive features. `localhost:8000/auth/register`
+- **Login**: Already have an account? Log in here. `localhost:8000/auth/login`
+- **Public Tasks**: Explore tasks that are publicly available. `localhost:8000/publicTasks`
 
 Start organizing your tasks now and boost your productivity!
 
@@ -145,17 +145,5 @@ List of the endpoints categorized by functionality, along with their correspondi
    - Authorization: None
 
 These endpoints are categorized based on the functionality they provide, and the authorization requirement is specified for each endpoint, indicating whether a valid JWT token is needed to access the endpoint.
-
-## Welcome Page
-
-Welcome to our task management application! Here, you can efficiently manage your tasks and collaborate with others.
-
-### Navigation Links:
-
-- **Register**: Sign up
-- **Login**: Already have an account? Log in here.
-- **Public Tasks**: Explore tasks that are publicly available.
-
-Start organizing your tasks now and boost your productivity!
 
 ---
